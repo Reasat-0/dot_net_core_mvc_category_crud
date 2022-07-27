@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-md-6">
+            <h2 class="text-primary"> Category List...</h2>
+        </div>
+
+        <div class="col-md-6 text-end">
+            <a class="btn btn-md btn-success" asp-controller="Category" asp-action="Create">
+                Add New Category
+            </a>
+        </div>
+
+        <partial name="_Notification"/>
+    </div>
+
+
+
+<table class="table table-bordered table-stripped" style="width:100%;">
+
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Display Order
+            </th>
+            <th>
+                Created At
+            </th>
+            <th class="text-center">
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model)
+        {
+            <tr>
+                <td>
+                    @row.Id
+                </td>
+                <td>
+                    @row.Name
+                </td>
+                <td>
+                    @row.DisplayOrder
+                </td>
+                <td>
+                    @row.CreatedDateTime
+                </td>
+                <td class="text-center">
+                    <a class="btn-info mx-2" asp-controller="Category" asp-action="Update" asp-route-id=@row.Id>
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a class="btn-danger mx-2" asp-controller="Category" asp-action="Delete" asp-route-id=@row.Id>
+                        <i class="text-danger bi bi-trash3"></i>
+                    </a>
+                </td>
+
+            </tr>
+            
+        }
+    </tbody>
+</table>
+
+    <div class="row">
+        <div class="col-md-12 text-end">
+            <a asp-controller="Category" asp-action="Export" class="btn btn-link text-info text-bold"> Export Categories </a>
+        </div>
+    </div>
+
+</div>

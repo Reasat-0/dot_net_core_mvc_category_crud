@@ -1,0 +1,11 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@if(TempData["success"] != null){
+    <h5 class="text-success">@TempData["success"]</h5>
+}
+
+@if(TempData["error"] != null){
+    <h5>@TempData["error"]</h5>
+}

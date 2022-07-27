@@ -1,0 +1,48 @@
+﻿
+@model Category;
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post">
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-md-12">
+            <h3> Edit Category... </h3>
+
+            <hr/>
+            @*<div asp-validation-summary="All"></div>*@
+        </div>
+
+
+        <div class="col-md-12">
+            <label asp-for="Name"> </label>
+            <input asp-for="Name" class="form-control"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="col-md-12">
+            <label asp-for="DisplayOrder"> </label>
+            <input asp-for="DisplayOrder" class="form-control"/>
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 pt-3 pb-3">
+            <a class="btn btn-md btn-secondary" asp-controller="Category" asp-action="Index">Go Back</a>
+        </div>
+
+        <div class="col-md-6 text-end pt-3 pb-3">
+            <button type="submit" class="btn btn-md btn-success"> Update Categroy </button>
+        </div>
+
+    </div>
+</div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    
+    }
+
+}
+
